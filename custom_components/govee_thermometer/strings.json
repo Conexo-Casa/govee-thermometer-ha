@@ -16,5 +16,16 @@
     "abort": {
       "already_configured": "This Govee account is already configured."
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Govee Thermometer Options",
+        "description": "Select the temperature unit your Govee account is configured to use. This is an account-level setting in the Govee Home app.",
+        "data": {
+          "temp_unit": "Temperature unit from API"
+        }
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import DOMAIN, CONF_TEMP_UNIT, TEMP_UNIT_FAHRENHEIT
 from .coordinator import GoveeCoordinator
 from .api import GoveeReading
 
@@ -24,9 +24,14 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     coordinators: list[GoveeCoordinator] = hass.data[DOMAIN][entry.entry_id]
+    temp_unit = (
+        UnitOfTemperature.FAHRENHEIT
+        if entry.options.get(CONF_TEMP_UNIT) == TEMP_UNIT_FAHRENHEIT
+        else UnitOfTemperature.CELSIUS
+    )
     entities: list[SensorEntity] = []
     for coord in coordinators:
-        entities.append(GoveeTempSensor(coord))
+        entities.append(GoveeTempSensor(coord, temp_unit))
         if coord.has_humidity:
             entities.append(GoveeHumiditySensor(coord))
         entities.append(GoveeOnlineSensor(coord))
@@ -57,13 +62,13 @@ class _GoveeBase(CoordinatorEntity[GoveeCoordinator], SensorEntity):
 class GoveeTempSensor(_GoveeBase):
     _attr_device_class                 = SensorDeviceClass.TEMPERATURE
     _attr_state_class                  = SensorStateClass.MEASUREMENT
-    _attr_native_unit_of_measurement   = UnitOfTemperature.CELSIUS
     _attr_suggested_display_precision  = 1
 
-    def __init__(self, coordinator: GoveeCoordinator) -> None:
+    def __init__(self, coordinator: GoveeCoordinator, unit: str) -> None:
         super().__init__(coordinator)
         self._attr_unique_id = f"{coordinator.device_id}_temperature"
         self._attr_name      = "Temperature"
+        self._attr_native_unit_of_measurement = unit
 
     @property
     def native_value(self) -> float | None:

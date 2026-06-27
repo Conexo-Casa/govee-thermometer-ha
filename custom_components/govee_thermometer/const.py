@@ -36,6 +36,11 @@ SCALE_DIVISOR   = 100
 
 # Config-entry / options keys
 CONF_API_KEY   = "api_key"
+CONF_TEMP_UNIT = "temp_unit"
+
+# Temperature unit options
+TEMP_UNIT_CELSIUS    = "celsius"
+TEMP_UNIT_FAHRENHEIT = "fahrenheit"
 
 # Polling
 SCAN_INTERVAL_SECONDS = 60   # safe for Govee's cloud rate limit
