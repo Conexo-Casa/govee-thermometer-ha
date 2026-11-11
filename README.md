@@ -26,7 +26,7 @@ A custom integration that pulls **temperature**, **humidity**, and **online stat
    Settings → About Us → Apply for API Key  
    (or visit [developer.govee.com](https://developer.govee.com/docs/getting-started))
 2. Home Assistant **2024.1** or newer
-3. Home Assistant 2026.11+ (Marketplace) or HACS on older versions
+3. For installing: the built-in Marketplace (HA 2026.11+) or HACS (older versions)
 
 ## Installation
 
@@ -89,3 +89,7 @@ The integration polls Govee's cloud API once per minute. This is within Govee's 
 
 [ha-badge]: https://img.shields.io/badge/HA-2024.1%2B-blue.svg
 [ha-url]: https://www.home-assistant.io
+
+## License
+
+MIT — see [LICENSE](LICENSE).
