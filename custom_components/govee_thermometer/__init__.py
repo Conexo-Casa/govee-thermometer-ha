@@ -9,7 +9,7 @@ from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import GoveeApi, GoveeApiError
-from .const import DOMAIN, CONF_API_KEY
+from .const import CONF_API_KEY, DOMAIN
 from .coordinator import GoveeCoordinator
 
 _LOGGER = logging.getLogger(__name__)

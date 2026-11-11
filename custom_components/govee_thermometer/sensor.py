@@ -13,9 +13,9 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
+from .api import GoveeReading
 from .const import DOMAIN
 from .coordinator import GoveeCoordinator
-from .api import GoveeReading
 
 
 async def async_setup_entry(

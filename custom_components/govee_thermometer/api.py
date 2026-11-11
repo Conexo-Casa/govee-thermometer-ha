@@ -7,14 +7,14 @@ from dataclasses import dataclass
 import aiohttp
 
 from .const import (
-    GOVEE_API_DEVICES,
-    GOVEE_API_STATE,
-    CAP_TEMPERATURE,
     CAP_HUMIDITY,
     CAP_ONLINE,
+    CAP_TEMPERATURE,
+    GOVEE_API_DEVICES,
+    GOVEE_API_STATE,
     GOVEE_SENSOR_SKUS,
-    SCALE_THRESHOLD,
     SCALE_DIVISOR,
+    SCALE_THRESHOLD,
 )
 
 _LOGGER = logging.getLogger(__name__)
