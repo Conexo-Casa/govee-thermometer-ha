@@ -7,7 +7,7 @@ from datetime import timedelta
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .api import GoveeApi, GoveeAuthError, GoveeApiError, GoveeReading
+from .api import GoveeApi, GoveeApiError, GoveeAuthError, GoveeReading
 from .const import DOMAIN, SCAN_INTERVAL_SECONDS
 
 _LOGGER = logging.getLogger(__name__)

@@ -1,9 +1,9 @@
 # Govee Thermometer / Hygrometer — Home Assistant Integration
 
-[![HACS Custom][hacs-badge]][hacs-url]
+[![Home Assistant Marketplace](https://img.shields.io/badge/HA%20Marketplace-custom%20repository-41BDF5.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Conexo-Casa&repository=govee-thermometer-ha&category=integration)
 [![HA Version][ha-badge]][ha-url]
 
-A HACS-compatible custom integration that pulls **temperature**, **humidity**, and **online status** from Govee WiFi thermometers and hygrometers using the Govee OpenAPI.
+A custom integration that pulls **temperature**, **humidity**, and **online status** from Govee WiFi thermometers and hygrometers using the Govee OpenAPI.
 
 ## Supported Devices
 
@@ -26,15 +26,33 @@ A HACS-compatible custom integration that pulls **temperature**, **humidity**, a
    Settings → About Us → Apply for API Key  
    (or visit [developer.govee.com](https://developer.govee.com/docs/getting-started))
 2. Home Assistant **2024.1** or newer
-3. HACS installed
+3. Home Assistant 2026.11+ (Marketplace) or HACS on older versions
 
 ## Installation
 
-### Via HACS (recommended)
+### Marketplace (Home Assistant 2026.11 and newer)
 
-1. In HACS → **Integrations** → ⋮ → **Custom repositories**
-2. Add `https://github.com/Conexo-Casa/govee-thermometer-ha` — category **Integration**
-3. Install **Govee Thermometer / Hygrometer** and restart Home Assistant
+[![Open your Home Assistant instance and show this repository in the Marketplace.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Conexo-Casa&repository=govee-thermometer-ha&category=integration)
+
+Or by hand:
+
+1. Go to **Settings → Marketplace**.
+2. Select **Add from link** (top right) and enter `Conexo-Casa/govee-thermometer-ha`.
+   The first time, Home Assistant asks you to connect GitHub. That is a one-time,
+   read-only sign-in on github.com.
+3. Open **Govee Thermometer / Hygrometer** and select **Install**. The setup screen opens right away; a first
+   install doesn't need a restart.
+
+Updates show up under **Settings → Updates**. After an update, Home Assistant shows a
+repair that offers to restart.
+
+### HACS (Home Assistant 2026.10 and older)
+
+1. HACS → **Integrations** → **⋮** → **Custom repositories**.
+2. Add `https://github.com/Conexo-Casa/govee-thermometer-ha`, category **Integration**.
+3. Download **Govee Thermometer / Hygrometer**, then restart Home Assistant.
+
+An existing HACS install moves to the Marketplace by itself when you upgrade to 2026.11.
 
 ### Manual
 
@@ -69,7 +87,5 @@ The integration polls Govee's cloud API once per minute. This is within Govee's 
 
 ---
 
-[hacs-badge]: https://img.shields.io/badge/HACS-Custom-orange.svg
-[hacs-url]: https://github.com/hacs/integration
 [ha-badge]: https://img.shields.io/badge/HA-2024.1%2B-blue.svg
 [ha-url]: https://www.home-assistant.io
