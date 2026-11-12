@@ -116,6 +116,7 @@ class GoveeApi:
         caps: list[dict] = data.get("payload", {}).get("capabilities", [])
 
         reading = GoveeReading()
+        reports_fahrenheit = GOVEE_SENSOR_SKUS.get(sku, {}).get("reports_fahrenheit", False)
         for cap in caps:
             instance = cap.get("instance", "")
             value    = cap.get("state", {}).get("value")
@@ -123,7 +124,10 @@ class GoveeApi:
             if instance == CAP_ONLINE:
                 reading.online = bool(value)
             elif instance == CAP_TEMPERATURE and value is not None:
-                reading.temperature = _normalise(float(value))
+                temp = _normalise(float(value))
+                if reports_fahrenheit:
+                    temp = round((temp - 32) * 5 / 9, 2)
+                reading.temperature = temp
             elif instance == CAP_HUMIDITY and value is not None:
                 reading.humidity = _normalise(float(value))
 

@@ -27,6 +27,9 @@ GOVEE_SENSOR_SKUS: dict[str, dict] = {
     # ── pool / water ────────────────────────────────────────────────────
     "H5055": {"label": "GoveeLife WiFi Pool Thermometer P1","has_humidity": False},
     "H5056": {"label": "Pool Thermometer H5056",             "has_humidity": False},
+    # H5109's cloud state always reports °F regardless of the app's display unit
+    # (confirmed via direct /device/state calls) — convert in api.py.
+    "H5109": {"label": "GoveeLife Pool Thermometer H5109",   "has_humidity": False, "reports_fahrenheit": True},
 }
 
 # Govee can return temperature/humidity multiplied by 100 (e.g. 2560 = 25.60°C)
